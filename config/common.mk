@@ -75,12 +75,6 @@ PRODUCT_PRODUCT_PROPERTIES += \
 #    frameworks/native/data/etc/android.hardware.biometrics.face.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/android.hardware.biometrics.face.xml
 #endif
 
-# FOD
-#ifeq ($(EXTRA_FOD_ANIMATIONS),true)
-#PRODUCT_PACKAGES += \
-#    FodAnimationResources
-#endif
-
 # Enforce privapp-permissions whitelist
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     ro.control_privapp_permissions=log
@@ -267,6 +261,13 @@ PRODUCT_PRODUCT_PROPERTIES += \
     ro.surface_flinger.supports_background_blur=1 \
     ro.sf.blurs_are_expensive=1
     persist.sysui.disableBlur=false
+endif
+
+# UDFPS Animations
+EXTRA_UDFPS_ANIMATIONS ?= false
+ifeq ($(EXTRA_UDFPS_ANIMATIONS),true)
+PRODUCT_PACKAGES += \
+    UdfpsResources
 endif
 
 # Disable async MTE on system_server

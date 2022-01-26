@@ -112,6 +112,12 @@ PRODUCT_PACKAGES += \
     Arcanery
 endif
 
+ifeq ($(ARCANA_OFFICIAL),true)
+# Repainter integration
+PRODUCT_PACKAGES += \
+    RepainterServicePriv
+endif
+
 TARGET_BUILD_GRAPHENEOS_CAMERA ?= true
 ifeq ($(strip $(TARGET_BUILD_GRAPHENEOS_CAMERA)),true)
 PRODUCT_PACKAGES += \

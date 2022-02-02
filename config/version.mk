@@ -13,8 +13,8 @@
 # limitations under the License.
 
 #Arcana Versioning
-ARCANA_VERSION = CLAIR
-ARCANA_CODE = 3.1
+ARCANA_VERSION = DREAM
+ARCANA_CODE = 4.0
 
 ifeq ($(WITH_GAPPS),true)
 PACKAGE_BUILD_TYPE ?= GAPPS

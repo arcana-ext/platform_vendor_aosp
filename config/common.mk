@@ -31,10 +31,6 @@ PRODUCT_COPY_FILES += \
 ifneq ($(WITH_GAPPS),true)
 include vendor/lawnchair/lawnchair.mk
 endif
-
-# RRO Overlays
-PRODUCT_PACKAGES += \
-    NavigationBarModeGesturalOverlayFS
     
 # Conditionally build adb root
 #ifneq ($(TARGET_BUILD_VARIANT),user)

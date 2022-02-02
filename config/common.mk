@@ -19,9 +19,6 @@ ifeq ($(ARCANA_OFFICIAL),true)
 $(call inherit-product, vendor/aosp/config/themes.mk)
 endif
 
-# Themes
-$(call inherit-product, vendor/themes/common.mk) 
-
 include vendor/aosp/config/version.mk
 
 # Audio files

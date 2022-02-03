@@ -258,6 +258,9 @@ PRODUCT_PACKAGES += \
 #PRODUCT_PACKAGES += \
 #    StitchImage
 
+# ThemeOverlays
+include packages/overlays/Themes/themes.mk
+
 TARGET_SUPPORTS_BLUR ?= false
 # Enable blurs based on targets
 ifeq ($(TARGET_SUPPORTS_BLUR),true)

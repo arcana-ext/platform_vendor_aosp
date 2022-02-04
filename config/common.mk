@@ -102,6 +102,7 @@ PRODUCT_PACKAGES += \
 
 ifeq ($(ARCANA_OFFICIAL),true)
 PRODUCT_PACKAGES += \
+    OPWidget \
     Arcanery
 endif
 

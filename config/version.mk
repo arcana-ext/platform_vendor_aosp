@@ -26,7 +26,7 @@ endif
 ifeq ($(ARCANA_OFFICIAL),true)
 ARCANA_BUILD_TYPE ?= OFFICIAL
 else
-ARCANA_BUILD_TYPE ?= UNOFFICIAL
+ARCANA_BUILD_TYPE ?= COMMUNITY
 endif
 
 # AOSP recovery flashing

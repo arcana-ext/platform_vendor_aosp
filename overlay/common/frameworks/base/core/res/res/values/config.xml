@@ -287,7 +287,7 @@
     <bool name="config_usePeopleFiltering">true</bool>
 
         <!-- Suppress System UI ANRs -->
-    <string translatable="false" name="config_appsNotReportingCrashes">com.android.systemui</string>
+    <string translatable="false" name="config_appsNotReportingCrashes">com.android.statementservice,com.android.systemui</string>
 
     <!-- Attribution path for SignalDrawable as defined on a 24x24 canvas. -->
     <string name="config_signalAttributionPath" translatable="false">

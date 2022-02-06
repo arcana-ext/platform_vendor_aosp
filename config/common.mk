@@ -90,7 +90,7 @@ PRODUCT_PACKAGES += \
     Stk \
     GamingMode \
     Via \
-    DevicePersonalizationPrebuiltPixel2020
+    DevicePersonalizationPrebuiltPixel2021
 
 ifeq ($(ARCANA_OFFICIAL),true)
 PRODUCT_PACKAGES += \

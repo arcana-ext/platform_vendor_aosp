@@ -104,7 +104,7 @@ PRODUCT_PACKAGES += \
     RepainterServicePriv
 endif
 
-TARGET_BUILD_GRAPHENEOS_CAMERA ?= true
+TARGET_BUILD_GRAPHENEOS_CAMERA ?= false
 ifeq ($(strip $(TARGET_BUILD_GRAPHENEOS_CAMERA)),true)
 PRODUCT_PACKAGES += \
     GrapheneCamera

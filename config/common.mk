@@ -301,6 +301,23 @@ PRODUCT_PRODUCT_PROPERTIES += \
     ro.com.google.ime.kb_pad_land_l?=64 \
     ro.com.google.ime.kb_pad_land_r?=64
     
+PRODUCT_PROPERTY_OVERRIDES += \
+    pm.dexopt.boot=verify \
+    pm.dexopt.first-boot=quicken \
+    pm.dexopt.install=speed-profile \
+    pm.dexopt.bg-dexopt=everything
+    
+ifneq ($(AB_OTA_PARTITIONS),)
+PRODUCT_PROPERTY_OVERRIDES += \
+    pm.dexopt.ab-ota=quicken
+endif
+
+# Don't compile SystemUITests
+EXCLUDE_SYSTEMUI_TESTS := true
+
+# Don't preopt prebuilts
+DONT_DEXPREOPT_PREBUILTS := true
+
 # Recommend using the non debug dexpreopter
 USE_DEX2OAT_DEBUG := false
 # Don't build debug for host or device

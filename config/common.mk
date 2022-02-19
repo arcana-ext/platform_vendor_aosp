@@ -89,7 +89,6 @@ PRODUCT_PACKAGES += \
     librs_jni \
     Stk \
     GamingMode \
-    Via \
     DevicePersonalizationPrebuiltPixel2021
 
 ifeq ($(ARCANA_OFFICIAL),true)

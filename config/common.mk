@@ -241,10 +241,10 @@ PRODUCT_PACKAGES += \
     charger_res_images
 
 # Pixel charger images
-#ifeq ($(USE_PIXEL_CHARGER_IMAGES),true)
-#PRODUCT_PACKAGES += \
-#    product_charger_res_images
-#endif
+ifeq ($(USE_PIXEL_CHARGER_IMAGES),true)
+PRODUCT_PACKAGES += \
+    product_charger_res_images
+endif
 
 # StichImage
 #PRODUCT_PACKAGES += \

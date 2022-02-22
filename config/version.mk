@@ -14,7 +14,7 @@
 
 #Arcana Versioning
 ARCANA_VERSION = DREAM
-ARCANA_CODE = 4.0
+ARCANA_CODE = 4.1
 
 ifeq ($(WITH_GAPPS),true)
 PACKAGE_BUILD_TYPE ?= PIXEL

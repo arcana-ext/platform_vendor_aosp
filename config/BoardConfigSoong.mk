@@ -60,7 +60,8 @@ SOONG_CONFIG_aospQcomVars += \
     uses_pre_uplink_features_netmgrd \
     uses_qcom_bsp_legacy \
     uses_qti_camera_device \
-    needs_camera_boottime_timestamp
+    needs_camera_boottime_timestamp_defaults \
+    camera_needs_client_info_lib_defaults
 
 # Only create display_headers_namespace var if dealing with UM platforms to avoid breaking build for all other platforms
 ifneq ($(filter $(UM_PLATFORMS),$(TARGET_BOARD_PLATFORM)),)
@@ -87,7 +88,8 @@ SOONG_CONFIG_aospQcomVars_supports_hw_fde_perf := $(TARGET_HW_DISK_ENCRYPTION_PE
 SOONG_CONFIG_aospQcomVars_uses_pre_uplink_features_netmgrd := $(TARGET_USES_PRE_UPLINK_FEATURES_NETMGRD)
 SOONG_CONFIG_aospQcomVars_uses_qcom_bsp_legacy := $(TARGET_USES_QCOM_BSP_LEGACY)
 SOONG_CONFIG_aospQcomVars_uses_qti_camera_device := $(TARGET_USES_QTI_CAMERA_DEVICE)
-SOONG_CONFIG_aospQcomVars_needs_camera_boottime_timestamp := $(TARGET_CAMERA_BOOTTIME_TIMESTAMP)
+SOONG_CONFIG_aospQcomVars_needs_camera_boottime_timestamp_defaults := $(TARGET_CAMERA_BOOTTIME_TIMESTAMP)
+SOONG_CONFIG_aospQcomVars_camera_needs_client_info_lib_defaults := $(TARGET_CAMERA_NEEDS_CLIENT_INFO_LIB)
 
 # Set default values
 BOOTLOADER_MESSAGE_OFFSET ?= 0

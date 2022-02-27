@@ -320,5 +320,7 @@ ART_BUILD_HOST_DEBUG := false
 # leave less information available via JDWP.
 PRODUCT_MINIMIZE_JAVA_DEBUG_INFO := true
 
-
+ifeq ($(ENFORCE_COMP_MATRIX_FILE),true)
+DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE += vendor/aosp/config/device_framework_matrix.xml
+endif
 

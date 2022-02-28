@@ -30,6 +30,11 @@ PRODUCT_COPY_FILES += \
 
 include vendor/lawnchair/lawnchair.mk
     
+ifeq ($(WITH_GAPPS),true)
+PRODUCT_PACKAGES += \
+    ThemedIconsOverlay
+endif
+
 # Conditionally build adb root
 #ifneq ($(TARGET_BUILD_VARIANT),user)
 #PRODUCT_PACKAGES += \

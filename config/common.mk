@@ -28,9 +28,11 @@ $(call inherit-product, vendor/aosp/config/google_audio.mk)
 PRODUCT_COPY_FILES += \
     vendor/aosp/prebuilt/common/etc/custom_font_config.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/custom_font_config.xml
 
+ifeq ($(PREBUILT_LAWNCHAIR),true)
 include vendor/lawnchair/lawnchair.mk
+endif
     
-ifeq ($(WITH_GAPPS),true)
+ifneq ($(PREBUILT_LAWNCHAIR),true)
 PRODUCT_PACKAGES += \
     ThemedIconsOverlay
 endif
@@ -149,7 +151,7 @@ PRODUCT_PRODUCT_PROPERTIES += \
 #PRODUCT_PACKAGES += \
 #    ImmersiveNavigationOverlay
 
-TARGET_SUPPORTS_QUICK_TAP := true
+TARGET_SUPPORTS_QUICK_TAP ?= true
 
 ifneq ($(WITH_GAPPS),true)
 # Pixel sysconfig

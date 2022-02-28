@@ -144,6 +144,8 @@ PRODUCT_PRODUCT_PROPERTIES += \
 #PRODUCT_PACKAGES += \
 #    ImmersiveNavigationOverlay
 
+TARGET_SUPPORTS_QUICK_TAP := true
+
 ifneq ($(WITH_GAPPS),true)
 # Pixel sysconfig
 PRODUCT_COPY_FILES += \

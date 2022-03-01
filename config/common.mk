@@ -96,6 +96,7 @@ PRODUCT_PACKAGES += \
     librs_jni \
     Stk \
     GamingMode \
+    Retro \
     DevicePersonalizationPrebuiltPixel2021
 
 ifeq ($(ARCANA_OFFICIAL),true)

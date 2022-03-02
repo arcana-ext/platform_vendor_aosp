@@ -20,6 +20,7 @@ import json
 import netrc
 import os
 import sys
+import shutil
 
 from xml.etree import ElementTree
 
@@ -28,13 +29,18 @@ import urllib.parse
 import urllib.request
 
 DEBUG = False
-default_manifest = ".repo/manifest.xml"
+CUSTOM_HAL_DIR = None
 
-custom_local_manifest = ".repo/local_manifests/arcana_manifest.xml"
+android_manifest = ".repo/manifests/snippets/arcana.xml"
+default_manifest = ".repo/manifests/snippets/arcana.xml"
+lineage_manifest = ".repo/manifests/snippets/lineage.xml"
+remove_manifest  = ".repo/manifests/snippets/remove.xml"
+
+custom_local_manifest = ".repo/local_manifests/arcana_device_manifest.xml"
 custom_default_revision = "12.x"
 custom_dependencies = "aosp.dependencies"
-org_manifest = "arcana-devices"  # leave empty if org is provided in manifest
-org_display = "ProjectArcana-Devices"  # needed for displaying
+org_manifest = "arcana-devices"
+org_display = "ProjectArcana-Devices"
 
 github_auth = None
 
@@ -120,12 +126,16 @@ def get_from_manifest(device_name):
     return None
 
 
-def is_in_manifest(project_path):
-    for man in (custom_local_manifest, default_manifest):
-        man = load_manifest(man)
-        for local_path in man.findall("project"):
-            if local_path.get("path") == project_path:
-                return True
+def is_in_remove(project_path, manifest=custom_local_manifest):
+    for local_path in load_manifest(manifest).findall("remove-project"):
+        if local_path.get("name") == project_path:
+            return True
+    return False
+
+def is_in_manifest(project_path, manifest=custom_local_manifest):
+    for local_path in load_manifest(manifest).findall("project"):
+        if local_path.get("path") == project_path:
+            return local_path.get("name")
     return False
 
 
@@ -145,11 +155,9 @@ def add_to_manifest(repos, fallback_branch=None):
             repo_path = repo_name.split('/')[-1]
 
         if 'branch' in repo:
-            repo_branch = repo['branch']
-        elif fallback_branch:
-            repo_branch = fallback_branch
+            repo_branch=repo['branch']
         else:
-            repo_branch = custom_default_revision
+            repo_branch=custom_default_revision
 
         if 'remote' in repo:
             repo_remote=repo['remote']
@@ -182,7 +190,33 @@ def add_to_manifest(repos, fallback_branch=None):
         if 'clone-depth' in repo:
             print("Setting clone-depth to %s for %s" % (repo['clone-depth'], repo_name))
             project.set('clone-depth', repo['clone-depth'])
-
+        
+        # Checking if the path already exists
+        if os.path.isdir(repo_path):
+            # Checking if it is already there in a project somewhere
+            existing_repo_name = is_in_manifest(repo_path, manifest=default_manifest) or is_in_manifest(repo_path, manifest=lineage_manifest)
+            if existing_repo_name:
+                if not is_in_remove(existing_repo_name):
+                    # Add to remove
+                    remove = ElementTree.Element("remove-project",
+                        attrib={"name":  existing_repo_name}
+                    )
+                    print('Existing Repository found\nRemoving Project:\nRepository: %s\n' % (existing_repo_name))
+                    lm.append(remove)
+            # Checking if we are overriding a default repo which we directly track from google
+            elif is_in_manifest(repo_path, manifest=android_manifest):
+                existing_repo_name=is_in_manifest(repo_path, manifest=android_manifest)
+                if not is_in_remove(existing_repo_name) and not is_in_remove(existing_repo_name, manifest=remove_manifest):
+                    # Add to remove
+                    remove = ElementTree.Element("remove-project",
+                        attrib={"name":  existing_repo_name}
+                    )
+                    print('Existing Repository found\nRemoving Project:\nRepository: %s\n' % (existing_repo_name))
+                    lm.append(remove)
+            # the path exists but is not a repo from manifest
+            else:
+                print('Existing Repository found, Not part of manifest\nRemoving Directory: %s\n' % (repo_path))
+                os.rmdir(repo_path)
         lm.append(project)
 
     indent(lm)
@@ -198,6 +232,7 @@ _fetch_dep_cache = []
 
 def fetch_dependencies(repo_path, fallback_branch=None):
     global _fetch_dep_cache
+    global CUSTOM_HAL_DIR
     if repo_path in _fetch_dep_cache:
         return
     _fetch_dep_cache.append(repo_path)
@@ -210,7 +245,7 @@ def fetch_dependencies(repo_path, fallback_branch=None):
             dependencies = json.load(dep_f)
     else:
         dependencies = {}
-        print('%s has no additional dependencies.' % repo_path)
+        debug('Dependencies file not found, bailing out.')
 
     fetch_list = []
     syncable_repos = []
@@ -218,12 +253,16 @@ def fetch_dependencies(repo_path, fallback_branch=None):
     for dependency in dependencies:
         if not is_in_manifest(dependency['target_path']):
             if not dependency.get('branch'):
-                dependency['branch'] = (
-                    fallback_branch or get_revision() or custom_default_revision
-                )
+                dependency['branch'] = (get_revision() or
+                                        custom_default_revision)
 
             fetch_list.append(dependency)
             syncable_repos.append(dependency['target_path'])
+            if dependency['target_path'].startswith('hardware/qcom-caf/'):
+                if dependency['target_path'].endswith('display') or dependency['target_path'].endswith('audio') or dependency['target_path'].endswith('media'):
+                    if not CUSTOM_HAL_DIR:
+                        CUSTOM_HAL_DIR = dependency['target_path'].split('/')[2]
+                    print('Custom hal path ', dependency['target_path'])
         else:
             print("Dependency already present in manifest: %s => %s" % (dependency['repository'], dependency['target_path']))
 
@@ -278,9 +317,9 @@ def detect_revision(repo):
           "specify a list of fallback branches.")
     sys.exit()
 
-
 def main():
     global DEBUG
+    global CUSTOM_HAL_DIR
     try:
         depsonly = bool(sys.argv[2] in ['true', 1])
     except IndexError:
@@ -340,8 +379,14 @@ def main():
         print("Syncing repository to retrieve project.")
         os.system('repo sync --force-sync --no-tags --current-branch --no-clone-bundle %s' % repo_path)
         print("Repository synced!")
-
         fetch_dependencies(repo_path, fallback_branch)
+        if CUSTOM_HAL_DIR:
+            try:
+                shutil.copy2('hardware/qcom-caf/common/os_pickup.mk', 'hardware/qcom-caf/'+CUSTOM_HAL_DIR+'/Android.mk')
+                shutil.copy2('hardware/qcom-caf/common/os_pickup.bp', 'hardware/qcom-caf/'+CUSTOM_HAL_DIR+'/Android.bp')
+            except:
+                print('Something went wrong file copying guard')
+            print('Successfully added guard to hardware/qcom-caf/' + CUSTOM_HAL_DIR)
         print("Done")
         sys.exit()
 

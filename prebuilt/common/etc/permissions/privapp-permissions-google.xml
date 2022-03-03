@@ -165,4 +165,8 @@ It allows additional grants on top of privapp-permissions-platform.xml
   <permission name="android.permission.SUBSTITUTE_SHARE_TARGET_APP_NAME_AND_ICON" />
   </privapp-permissions>
   
+    <privapp-permissions package="com.google.android.gms">
+        <permission name="android.permission.WRITE_DEVICE_CONFIG" />
+    </privapp-permissions>
+
 </permissions>

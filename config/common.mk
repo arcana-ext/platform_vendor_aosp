@@ -28,10 +28,20 @@ $(call inherit-product, vendor/aosp/config/google_audio.mk)
 PRODUCT_COPY_FILES += \
     vendor/aosp/prebuilt/common/etc/custom_font_config.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/custom_font_config.xml
 
+ifneq ($(WITH_GAPPS),true)
+include vendor/lawnchair/lawnchair.mk
+PREBUILT_LAUNCHER ?= LAWNCHAIR
+endif
+
+ifeq ($(WITH_GAPPS),true)
 ifeq ($(PREBUILT_LAWNCHAIR),true)
 include vendor/lawnchair/lawnchair.mk
+PREBUILT_LAUNCHER ?= LAWNCHAIR
+else
+PREBUILT_LAUNCHER ?= PIXEL
 endif
-    
+endif
+
 ifneq ($(PREBUILT_LAWNCHAIR),true)
 PRODUCT_PACKAGES += \
     ThemedIconsOverlay

@@ -86,14 +86,14 @@ TARGET_FACE_UNLOCK_SUPPORTED ?= true
 ifeq ($(TARGET_FACE_UNLOCK_SUPPORTED),true)
 PRODUCT_PACKAGES += \
     FaceUnlockService
-PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
+PRODUCT_SYSTEM_PROPERTIES += \
     ro.face_unlock_service.enabled=$(TARGET_FACE_UNLOCK_SUPPORTED)
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.biometrics.face.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/android.hardware.biometrics.face.xml
 endif
 
 # Enforce privapp-permissions whitelist
-PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
+PRODUCT_SYSTEM_PROPERTIES += \
     ro.control_privapp_permissions=log
 
 PRODUCT_PACKAGES += \
@@ -154,10 +154,6 @@ PRODUCT_DEXPREOPT_SPEED_APPS += \
 # Extra packages
 PRODUCT_PACKAGES += \
     libjni_latinimegoogle
-
-# Enable support of one-handed mode
-PRODUCT_PRODUCT_PROPERTIES += \
-    ro.support_one_handed_mode=true
 
 # Immersive Navigation
 #PRODUCT_PACKAGES += \
@@ -244,7 +240,7 @@ PRODUCT_COPY_FILES += \
     frameworks/base/data/keyboards/Vendor_045e_Product_028e.kl:$(TARGET_COPY_OUT_PRODUCT)/usr/keylayout/Vendor_045e_Product_0719.kl
 
 # Media
-PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
+PRODUCT_SYSTEM_PROPERTIES += \
     media.recorder.show_manufacturer_and_model=true
 
 # Arcana maintainer
@@ -277,7 +273,7 @@ include packages/overlays/Themes/themes.mk
 TARGET_SUPPORTS_BLUR ?= false
 # Enable blurs based on targets
 ifeq ($(TARGET_SUPPORTS_BLUR),true)
-PRODUCT_PRODUCT_PROPERTIES += \
+PRODUCT_VENDOR_PROPERTIES += \
     ro.surface_flinger.supports_background_blur=1 \
     ro.sf.blurs_are_expensive=1
     persist.sysui.disableBlur=false
@@ -291,36 +287,36 @@ PRODUCT_PACKAGES += \
 endif
 
 # Disable async MTE on system_server
-PRODUCT_PRODUCT_PROPERTIES += \
+PRODUCT_SYSTEM_EXT_PROPERTIES += \
     arm64.memtag.process.system_server=off
     
 # Enable IORap I/O Prefetching
-PRODUCT_PRODUCT_PROPERTIES += \
+PRODUCT_SYSTEM_PROPERTIES += \
     persist.device_config.runtime_native_boot.iorap_perfetto_enable=true
 
 # Disable blur on app-launch
-PRODUCT_PRODUCT_PROPERTIES += \
+PRODUCT_SYSTEM_EXT_PROPERTIES += \
     ro.launcher.blur.appLaunch=false
     
 # Fling Sysprops
-PRODUCT_PRODUCT_PROPERTIES += \
+PRODUCT_SYSTEM_PROPERTIES += \
     ro.min.fling_velocity=50 \
     ro.max.fling_velocity=16000
 
 # Disable Deep Press touch video heatmaps 
-PRODUCT_PRODUCT_PROPERTIES += \
+PRODUCT_SYSTEM_PROPERTIES += \
     ro.input.video_enabled=false
     
 # Gboard
 PRODUCT_PRODUCT_PROPERTIES += \
-    ro.com.google.ime.kb_pad_port_b=1
+    ro.com.google.ime.kb_pad_port_b?=1
 
-# Gboard side padding
+# Gboard side padding (OOS)
 PRODUCT_PRODUCT_PROPERTIES += \
-    ro.com.google.ime.kb_pad_port_l?=4 \
-    ro.com.google.ime.kb_pad_port_r?=4 \
-    ro.com.google.ime.kb_pad_land_l?=64 \
-    ro.com.google.ime.kb_pad_land_r?=64
+    ro.com.google.ime.kb_pad_port_l?=7 \
+    ro.com.google.ime.kb_pad_port_r?=7 \
+    ro.com.google.ime.kb_pad_land_l?=14 \
+    ro.com.google.ime.kb_pad_land_r?=14
 
 # Don't compile SystemUITests
 EXCLUDE_SYSTEMUI_TESTS := true

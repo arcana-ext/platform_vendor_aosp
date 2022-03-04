@@ -165,12 +165,16 @@ ifneq ($(WITH_GAPPS),true)
 # Pixel sysconfig
 PRODUCT_COPY_FILES += \
     vendor/aosp/prebuilt/common/etc/sysconfig/pixel.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/sysconfig/pixel.xml \
-    vendor/aosp/prebuilt/common/etc/permissions/privapp-permissions-google.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/privapp-permissions-google.xml
+    vendor/aosp/prebuilt/common/etc/permissions/product/privapp-permissions-product-google.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/privapp-permissions-product-google.xml \
+    vendor/aosp/prebuilt/common/etc/permissions/system/privapp-permissions-google-system.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/privapp-permissions-google-system.xml
 endif
 
 # priv-app permissions
 PRODUCT_COPY_FILES += \
-    vendor/aosp/prebuilt/common/etc/permissions/privapp-permissions-whitelist.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/privapp-permissions-whitelist.xml
+    vendor/aosp/prebuilt/common/etc/permissions/system/privapp-permissions-arcana.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/privapp-permissions-arcana.xml \
+    vendor/aosp/prebuilt/common/etc/permissions/system/privapp-permissions-qti.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/privapp-permissions-qti.xml \
+    vendor/aosp/prebuilt/common/etc/permissions/product/privapp-permissions-arcana.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/privapp-permissions-arcana.xml \
+    vendor/aosp/prebuilt/common/etc/permissions/product/privapp-permissions-soundrecorder.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/privapp-permissions-soundrecorder.xml
     
 # Pixel sysconfig from Pixel XL (Photos)
 PRODUCT_COPY_FILES += \

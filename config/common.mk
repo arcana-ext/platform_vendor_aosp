@@ -174,6 +174,7 @@ PRODUCT_COPY_FILES += \
     vendor/aosp/prebuilt/common/etc/permissions/system/privapp-permissions-arcana.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/privapp-permissions-arcana.xml \
     vendor/aosp/prebuilt/common/etc/permissions/system/privapp-permissions-qti.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/privapp-permissions-qti.xml \
     vendor/aosp/prebuilt/common/etc/permissions/system/android.software.nfc.beam.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/android.software.nfc.beam.xml \
+    vendor/aosp/prebuilt/common/etc/permissions/system/custom-power-whitelist.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/custom-power-whitelist.xml \
     vendor/aosp/prebuilt/common/etc/permissions/product/privapp-permissions-arcana.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/privapp-permissions-arcana.xml \
     vendor/aosp/prebuilt/common/etc/permissions/product/privapp-permissions-soundrecorder.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/privapp-permissions-soundrecorder.xml \
     vendor/aosp/prebuilt/common/etc/permissions/system-ext/privapp-permissions-arcana.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions/privapp-permissions-arcana.xml \

@@ -103,6 +103,9 @@ not add logic in privapp-permission-platform.xml directly.
         <permission name="android.permission.RECOVERY"/>
         <permission name="android.permission.SHUTDOWN"/>
         <permission name="android.permission.SET_ACTIVITY_WATCHER"/>
+        <permission name="lineageos.permission.HARDWARE_ABSTRACTION_ACCESS"/>
+	<permission name="lineageos.permission.MANAGE_LIVEDISPLAY"/>
+	<permission name="lineageos.permission.HARDWARE_ABSTRACTION_ACCESS"/>
     </privapp-permissions>
 
     <privapp-permissions package="com.android.dialer">
@@ -210,6 +213,10 @@ not add logic in privapp-permission-platform.xml directly.
         <permission name="android.permission.MANAGE_DEBUGGING" />
         <permission name="android.permission.MEDIA_CONTENT_CONTROL" />
         <permission name="android.permission.READ_PRIVILEGED_PHONE_STATE" />
+        <permission name="android.permission.UPDATE_FONTS" />
+        <permission name="lineageos.permission.MANAGE_LIVEDISPLAY"/>
+	<permission name="lineageos.permission.HARDWARE_ABSTRACTION_ACCESS"/>
+	<permission name="android.permission.ACCESS_FONT_MANAGER"/>
     </privapp-permissions>
     
     <privapp-permissions package="com.android.settings.intelligence">

@@ -105,7 +105,6 @@ PRODUCT_PACKAGES += \
     VisualizationWallpapers \
     librs_jni \
     Stk \
-    GamingMode \
     Retro \
     Via \
     DevicePersonalizationPrebuiltPixel2021

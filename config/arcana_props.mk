@@ -27,7 +27,6 @@ PRODUCT_SYSTEM_PROPERTIES += \
     persist.sys.wfd.virtual=0 \
     persist.sys.dun.override=0 \
     ro.storage_manager.enabled=true \
-    persist.sys.recovery_update=false \
     ro.com.google.ime.bs_theme=true \
     ro.com.google.ime.theme_id=5 \
     persist.sys.disable_rescue=true

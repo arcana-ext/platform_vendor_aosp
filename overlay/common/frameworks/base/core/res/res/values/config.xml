@@ -275,7 +275,7 @@
     <!-- Wallpaper cropper package. Used as the default cropper if the active launcher doesn't
          handle wallpaper cropping.
     -->
-    <string name="config_wallpaperCropperPackage">com.google.android.apps.wallpaper</string>
+    <string name="config_wallpaperCropperPackage" translatable="false">com.android.wallpaper</string>
 
     <!-- Exempt AiAi from privacy indicators -->
     <string name="config_systemAmbientAudioIntelligence">com.google.android.as</string>

@@ -1,8 +1,8 @@
-
+ifeq ($(WITH_GAPPS),true)
 # Gapps
 $(call inherit-product, vendor/gapps/config.mk)
 
-ifeq ($(WITH_GAPPS),true)
+
 # Common Overlay
 DEVICE_PACKAGE_OVERLAYS += \
     vendor/aosp/overlay-gapps/common

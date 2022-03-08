@@ -29,29 +29,16 @@ PRODUCT_COPY_FILES += \
     vendor/aosp/prebuilt/common/etc/custom_font_config.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/custom_font_config.xml
 
 ifneq ($(WITH_GAPPS),true)
-include vendor/lawnchair/lawnchair.mk
-PREBUILT_LAUNCHER ?= LAWNCHAIR
-endif
-
-ifeq ($(WITH_GAPPS),true)
-ifeq ($(PREBUILT_LAWNCHAIR),true)
-include vendor/lawnchair/lawnchair.mk
-PREBUILT_LAUNCHER ?= LAWNCHAIR
-else
-PREBUILT_LAUNCHER ?= PIXEL
-endif
-endif
-
-ifneq ($(PREBUILT_LAWNCHAIR),true)
 PRODUCT_PACKAGES += \
+    ThemePicker \
+    SimpleDeviceConfig \
+    Launcher3QuickStep \
     ThemedIconsOverlay
+    
+PRODUCT_DEXPREOPT_SPEED_APPS += \
+    Launcher3QuickStep
 endif
 
-# Conditionally build adb root
-#ifneq ($(TARGET_BUILD_VARIANT),user)
-#PRODUCT_PACKAGES += \
-#    adb_root
-#endif
 
 # Backup Tool
 PRODUCT_COPY_FILES += \
@@ -81,16 +68,16 @@ PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS +=  \
 PRODUCT_PRODUCT_PROPERTIES += \
     ro.support_one_handed_mode=true
 
-# Face Unlock
-TARGET_FACE_UNLOCK_SUPPORTED ?= true
-ifeq ($(TARGET_FACE_UNLOCK_SUPPORTED),true)
-PRODUCT_PACKAGES += \
-    FaceUnlockService
-PRODUCT_SYSTEM_PROPERTIES += \
-    ro.face_unlock_service.enabled=$(TARGET_FACE_UNLOCK_SUPPORTED)
-PRODUCT_COPY_FILES += \
-    frameworks/native/data/etc/android.hardware.biometrics.face.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/android.hardware.biometrics.face.xml
-endif
+## Face Unlock
+#TARGET_FACE_UNLOCK_SUPPORTED ?= true
+#ifeq ($(TARGET_FACE_UNLOCK_SUPPORTED),true)
+#PRODUCT_PACKAGES += \
+#    FaceUnlockService
+#PRODUCT_SYSTEM_PROPERTIES += \
+ #   ro.face_unlock_service.enabled=$(TARGET_FACE_UNLOCK_SUPPORTED)
+#PRODUCT_COPY_FILES += \
+#    frameworks/native/data/etc/android.hardware.biometrics.face.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/#android.hardware.biometrics.face.xml
+#endif
 
 # Enforce privapp-permissions whitelist
 PRODUCT_SYSTEM_PROPERTIES += \
@@ -106,7 +93,7 @@ PRODUCT_PACKAGES += \
     librs_jni \
     Stk \
     Retro \
-    Via \
+    fossbrowser \
     DevicePersonalizationPrebuiltPixel2021
 
 ifeq ($(ARCANA_OFFICIAL),true)
@@ -131,15 +118,6 @@ endif
 PRODUCT_PACKAGES += \
     QuickAccessWallet
 
-# SimpleDeviceConfig
-PRODUCT_PACKAGES += \
-    SimpleDeviceConfig
-
-# Cutout control overlays
-#PRODUCT_PACKAGES += \
-#    HideCutout \
-#    StatusBarStock
-
 PRODUCT_PACKAGES += \
     NoCutoutOverlay \
     AvoidAppsInCutoutOverlay
@@ -153,10 +131,6 @@ PRODUCT_DEXPREOPT_SPEED_APPS += \
 # Extra packages
 PRODUCT_PACKAGES += \
     libjni_latinimegoogle
-
-# Immersive Navigation
-#PRODUCT_PACKAGES += \
-#    ImmersiveNavigationOverlay
 
 TARGET_SUPPORTS_QUICK_TAP ?= true
 
@@ -224,10 +198,6 @@ PRODUCT_COPY_FILES += \
 # font permission
 PRODUCT_COPY_FILES += \
     vendor/aosp/config/permissions/privapp-permissions-settings.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions/privapp-permissions-settings.xml
-	
-# SoftAPManager
-#PRODUCT_PACKAGES += \
-#    SoftAPManager
 
 # init.d support
 PRODUCT_COPY_FILES += \
@@ -270,12 +240,8 @@ PRODUCT_PACKAGES += \
     product_charger_res_images
 endif
 
-# StichImage
-#PRODUCT_PACKAGES += \
-#    StitchImage
-
 # ThemeOverlays
-include packages/overlays/Themes/themes.mk
+#include packages/overlays/Themes/themes.mk
 
 TARGET_SUPPORTS_BLUR ?= false
 # Enable blurs based on targets

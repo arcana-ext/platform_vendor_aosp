@@ -33,4 +33,7 @@ endif
 ifeq ($(TARGET_USES_AOSP_RECOVERY), true)
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     persist.sys.recovery_update=true
+else
+PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
+    persist.sys.recovery_update=false
 endif

@@ -32,13 +32,17 @@ ifneq ($(WITH_GAPPS),true)
 PRODUCT_PACKAGES += \
     ThemePicker \
     SimpleDeviceConfig \
-    Launcher3QuickStep \
-    ThemedIconsOverlay
+    Launcher3QuickStep
     
 PRODUCT_DEXPREOPT_SPEED_APPS += \
     Launcher3QuickStep
 endif
 
+
+ifeq ($(WITH_GAPPS),true)
+PRODUCT_PACKAGES += \
+    ThemedIconsOverlay
+endif
 
 # Backup Tool
 PRODUCT_COPY_FILES += \

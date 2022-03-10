@@ -79,6 +79,10 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/alarm_ringtones/plasma-mobile_slowly.ogg:$(TARGET_COPY_OUT_PRODUCT)/media/audio/ringtones/plasma-mobile_slowly.ogg \
     $(LOCAL_PATH)/alarm_ringtones/plasma-mobile_spatial.ogg:$(TARGET_COPY_OUT_PRODUCT)/media/audio/ringtones/plasma-mobile_spatial.ogg \
     $(LOCAL_PATH)/alarm_ringtones/plasma-mobile_unfamiliar.ogg:$(TARGET_COPY_OUT_PRODUCT)/media/audio/ringtones/plasma-mobile_unfamiliar.ogg \
+    $(LOCAL_PATH)/alarm_ringtones/into_the_night.ogg:$(TARGET_COPY_OUT_PRODUCT)/media/audio/alarms/into_the_night.ogg \
+    $(LOCAL_PATH)/ringtones/into_the_night.ogg:$(TARGET_COPY_OUT_PRODUCT)/media/audio/ringtones/into_the_night.ogg \
+    $(LOCAL_PATH)/notifications/oneplus.ogg:$(TARGET_COPY_OUT_PRODUCT)/media/audio/notifications/oneplus.ogg \
+    $(LOCAL_PATH)/ringtones/oneplusring.ogg:$(TARGET_COPY_OUT_PRODUCT)/media/audio/ringtones/oneplusring.ogg \
     $(LOCAL_PATH)/alarm_ringtones/plasma-mobile_wink.ogg:$(TARGET_COPY_OUT_PRODUCT)/media/audio/ringtones/plasma-mobile_wink.ogg \
     $(LOCAL_PATH)/alarm_ringtones/plasma-mobile_wubstep.ogg:$(TARGET_COPY_OUT_PRODUCT)/media/audio/ringtones/plasma-mobile_wubstep.ogg
 

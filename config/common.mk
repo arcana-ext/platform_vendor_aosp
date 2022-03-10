@@ -19,7 +19,7 @@ ifeq ($(ARCANA_OFFICIAL),true)
 $(call inherit-product, vendor/aosp/config/themes.mk)
 endif
 $(call inherit-product, vendor/aosp/fonts/fonts.mk)
-$(call inherit-product, vendor/aosp/config/google_audio.mk)
+$(call inherit-product, vendor/aosp/config/audio.mk)
 $(call inherit-product, vendor/aosp/audio/audio.mk)
 $(call inherit-product, vendor/aosp/config/bootanimation.mk)
 include vendor/aosp/config/version.mk

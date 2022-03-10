@@ -15,12 +15,9 @@
 LOCAL_PATH := vendor/aosp/prebuilt/common/media/audio
 
 PRODUCT_COPY_FILES += \
-    $(call find-copy-subdir-files,*,$(LOCAL_PATH)/alarms,$(TARGET_COPY_OUT_PRODUCT)/media/audio/alarms) \
-    $(call find-copy-subdir-files,*,$(LOCAL_PATH)/notifications,$(TARGET_COPY_OUT_PRODUCT)/media/audio/notifications) \
-    $(call find-copy-subdir-files,*,$(LOCAL_PATH)/ringtones,$(TARGET_COPY_OUT_PRODUCT)/media/audio/ringtones) \
     $(call find-copy-subdir-files,*,$(LOCAL_PATH)/ui,$(TARGET_COPY_OUT_PRODUCT)/media/audio/ui)
 
 PRODUCT_PRODUCT_PROPERTIES += \
-    ro.config.ringtone=oneplusring.ogg \
+    ro.config.ringtone=into_the_night.ogg \
     ro.config.notification_sound=oneplus.ogg \
-    ro.config.alarm_alert=material_gentle.ogg
+    ro.config.alarm_alert=into_the_night.ogg

@@ -23,4 +23,4 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PRODUCT_PROPERTIES += \
     ro.config.ringtone=oneplusring.ogg \
     ro.config.notification_sound=oneplus.ogg \
-    ro.config.alarm_alert=Fresh_start.ogg
+    ro.config.alarm_alert=material_gentle.ogg

@@ -1,4 +1,3 @@
-ifeq ($(WITH_GAPPS),true)
 # Gapps
 $(call inherit-product, vendor/gms/gms_full.mk)
 
@@ -49,5 +48,4 @@ PRODUCT_PRODUCT_PROPERTIES += \
     ro.atrace.core.services=com.google.android.gms,com.google.android.gms.ui,com.google.android.gms.persistent
     
 $(call inherit-product, vendor/aosp/config/rro_overlays.mk)
-endif
 

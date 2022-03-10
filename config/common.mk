@@ -12,37 +12,22 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# Gapps
+ifeq ($(WITH_GAPPS),true)
 $(call inherit-product, vendor/aosp/config/gapps.mk)
-
+endif
 ifeq ($(ARCANA_OFFICIAL),true)
 $(call inherit-product, vendor/aosp/config/themes.mk)
 endif
-
-include vendor/aosp/config/version.mk
-
-# Audio files
+$(call inherit-product, vendor/aosp/fonts/fonts.mk)
 $(call inherit-product, vendor/aosp/config/google_audio.mk)
+$(call inherit-product, vendor/aosp/config/bootanimation.mk)
+include vendor/aosp/config/version.mk
+# ThemeOverlays
+#include packages/overlays/Themes/themes.mk
 
 # Font config template
 PRODUCT_COPY_FILES += \
     vendor/aosp/prebuilt/common/etc/custom_font_config.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/custom_font_config.xml
-
-ifneq ($(WITH_GAPPS),true)
-PRODUCT_PACKAGES += \
-    ThemePicker \
-    SimpleDeviceConfig \
-    Launcher3QuickStep
-    
-PRODUCT_DEXPREOPT_SPEED_APPS += \
-    Launcher3QuickStep
-endif
-
-
-ifeq ($(WITH_GAPPS),true)
-PRODUCT_PACKAGES += \
-    ThemedIconsOverlay
-endif
 
 # Backup Tool
 PRODUCT_COPY_FILES += \
@@ -57,8 +42,20 @@ PRODUCT_COPY_FILES += \
     vendor/aosp/prebuilt/common/bin/backuptool_postinstall.sh:$(TARGET_COPY_OUT_SYSTEM)/bin/backuptool_postinstall.sh
 endif
 
-# Bootanimation
-$(call inherit-product, vendor/aosp/config/bootanimation.mk)
+ifneq ($(WITH_GAPPS),true)
+PRODUCT_PACKAGES += \
+    ThemePicker \
+    SimpleDeviceConfig \
+    Launcher3QuickStep
+    
+PRODUCT_DEXPREOPT_SPEED_APPS += \
+    Launcher3QuickStep
+endif
+
+ifeq ($(WITH_GAPPS),true)
+PRODUCT_PACKAGES += \
+    ThemedIconsOverlay
+endif
 
 # Common Overlay
 PRODUCT_PACKAGE_OVERLAYS += \
@@ -82,10 +79,6 @@ PRODUCT_PRODUCT_PROPERTIES += \
 #PRODUCT_COPY_FILES += \
 #    frameworks/native/data/etc/android.hardware.biometrics.face.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/#android.hardware.biometrics.face.xml
 #endif
-
-# Enforce privapp-permissions whitelist
-PRODUCT_SYSTEM_PROPERTIES += \
-    ro.control_privapp_permissions=log
 
 PRODUCT_PACKAGES += \
     Terminal \
@@ -128,7 +121,6 @@ PRODUCT_PACKAGES += \
 
 # Dex preopt
 PRODUCT_DEXPREOPT_SPEED_APPS += \
-    Lawnchair  \
     Settings \
     SystemUI
 
@@ -244,9 +236,6 @@ PRODUCT_PACKAGES += \
     product_charger_res_images
 endif
 
-# ThemeOverlays
-#include packages/overlays/Themes/themes.mk
-
 TARGET_SUPPORTS_BLUR ?= false
 # Enable blurs based on targets
 ifeq ($(TARGET_SUPPORTS_BLUR),true)
@@ -262,6 +251,10 @@ ifeq ($(EXTRA_UDFPS_ANIMATIONS),true)
 PRODUCT_PACKAGES += \
     UdfpsResources
 endif
+
+# Enforce privapp-permissions whitelist
+PRODUCT_SYSTEM_PROPERTIES += \
+    ro.control_privapp_permissions=log
 
 # Disable async MTE on system_server
 PRODUCT_SYSTEM_EXT_PROPERTIES += \

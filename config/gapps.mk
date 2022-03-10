@@ -1,6 +1,6 @@
 ifeq ($(WITH_GAPPS),true)
 # Gapps
-$(call inherit-product, vendor/gapps/gms_full.mk)
+$(call inherit-product, vendor/gms/gms_full.mk)
 
 
 # Common Overlay
@@ -51,6 +51,3 @@ PRODUCT_PRODUCT_PROPERTIES += \
 $(call inherit-product, vendor/aosp/config/rro_overlays.mk)
 endif
 
-#ifeq ($(WITH_CORE_GAPPS),true)
-#$(call inherit-product, vendor/gapps/config_core.mk)
-#endif

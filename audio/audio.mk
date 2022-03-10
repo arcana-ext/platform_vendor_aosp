@@ -34,7 +34,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/notifications/material_simple-celebration_1.ogg:$(TARGET_COPY_OUT_PRODUCT)/media/audio/notifications/material_simple-celebration_1.ogg \
     $(LOCAL_PATH)/notifications/material_simple-celebration_2.ogg:$(TARGET_COPY_OUT_PRODUCT)/media/audio/notifications/material_simple-celebration_2.ogg \
     $(LOCAL_PATH)/notifications/material_simple-celebration_3.ogg:$(TARGET_COPY_OUT_PRODUCT)/media/audio/notifications/material_simple-celebration_3.ogg \
-    $(LOCAL_PATH)/ringtones/material_minimal.ogg:$(TARGET_COPY_OUT_PRODUCT)/media/audio/ringtones/material_minimal.ogg \
+    $(LOCAL_PATH)/ringtones/material_minimal.ogg:$(TARGET_COPY_OUT_PRODUCT)/media/audio/ringtones/material_minimal.ogg
 
 # Plasma Mobile sounds (mixed CC0 / CC BY 4.0 / CC BY-SA 4.0)
 # Source: https://invent.kde.org/devinlin/plasma-mobile-sounds/-/tree/master
@@ -80,10 +80,5 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/alarm_ringtones/plasma-mobile_spatial.ogg:$(TARGET_COPY_OUT_PRODUCT)/media/audio/ringtones/plasma-mobile_spatial.ogg \
     $(LOCAL_PATH)/alarm_ringtones/plasma-mobile_unfamiliar.ogg:$(TARGET_COPY_OUT_PRODUCT)/media/audio/ringtones/plasma-mobile_unfamiliar.ogg \
     $(LOCAL_PATH)/alarm_ringtones/plasma-mobile_wink.ogg:$(TARGET_COPY_OUT_PRODUCT)/media/audio/ringtones/plasma-mobile_wink.ogg \
-    $(LOCAL_PATH)/alarm_ringtones/plasma-mobile_wubstep.ogg:$(TARGET_COPY_OUT_PRODUCT)/media/audio/ringtones/plasma-mobile_wubstep.ogg \
+    $(LOCAL_PATH)/alarm_ringtones/plasma-mobile_wubstep.ogg:$(TARGET_COPY_OUT_PRODUCT)/media/audio/ringtones/plasma-mobile_wubstep.ogg
 
-# Use Material product sounds by default
-PRODUCT_PRODUCT_PROPERTIES += \
-    ro.config.ringtone=material_minimal.ogg \
-    ro.config.alarm_alert=material_gentle.ogg \
-    ro.config.notification_sound=material_simple_1.ogg \

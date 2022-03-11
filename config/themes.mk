@@ -7,4 +7,5 @@ PRODUCT_PACKAGES += \
     XtendedClearSystemOverlay \
     XtendedClearSystemUIOverlay \
     DarkGreySystemOverlay \
-    DarkGreySystemUIOverlay
+    DarkGreySystemUIOverlay \
+    NavigationBarModeGesturalOverlayFS

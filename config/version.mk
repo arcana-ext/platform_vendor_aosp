@@ -13,7 +13,7 @@
 # limitations under the License.
 
 #Arcana Versioning
-ARCANA_VERSION = ECLAIR
+ARCANA_VERSION = EVERGLOW
 ARCANA_CODE = 5.0
 
 ifeq ($(WITH_GAPPS),true)

@@ -90,6 +90,7 @@ PRODUCT_PACKAGES += \
     VisualizationWallpapers \
     librs_jni \
     Stk \
+    GamingMode \
     Retro \
     fossbrowser \
     DevicePersonalizationPrebuiltPixel2021

@@ -247,6 +247,9 @@ PRODUCT_PACKAGES += \
     UdfpsResources
 endif
 
+# Disable extra StrictMode features on all non-engineering builds
+PRODUCT_SYSTEM_PROPERTIES += persist.sys.strictmode.disable=true
+
 # Enforce privapp-permissions whitelist
 PRODUCT_SYSTEM_PROPERTIES += \
     ro.control_privapp_permissions=log

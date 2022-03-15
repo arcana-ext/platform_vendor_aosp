@@ -12,9 +12,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-ifeq ($(WITH_GAPPS),true)
-$(call inherit-product, vendor/aosp/config/gapps.mk)
-endif
 ifeq ($(ARCANA_OFFICIAL),true)
 $(call inherit-product, vendor/aosp/config/themes.mk)
 endif

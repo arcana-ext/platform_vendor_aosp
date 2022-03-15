@@ -12,21 +12,19 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-ifeq ($(ARCANA_OFFICIAL),true)
 $(call inherit-product, vendor/aosp/config/themes.mk)
-endif
 $(call inherit-product, vendor/aosp/fonts/fonts.mk)
 $(call inherit-product, vendor/aosp/config/audio.mk)
 $(call inherit-product, vendor/aosp/audio/audio.mk)
 $(call inherit-product, vendor/aosp/config/bootanimation.mk)
 include vendor/aosp/config/version.mk
+
 # ThemeOverlays
 #include packages/overlays/Themes/themes.mk
 
 # Font config template
 PRODUCT_COPY_FILES += \
     vendor/aosp/prebuilt/common/etc/custom_font_config.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/custom_font_config.xml
-
 
 PRODUCT_COPY_FILES += \
     vendor/aosp/prebuilt/common/etc/permissions/product/com.google.android.apps.dialer.call_recording_audio.features.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/com.google.android.apps.dialer.call_recording_audio.features.xml
@@ -44,7 +42,7 @@ PRODUCT_COPY_FILES += \
     vendor/aosp/prebuilt/common/bin/backuptool_postinstall.sh:$(TARGET_COPY_OUT_SYSTEM)/bin/backuptool_postinstall.sh
 endif
 
-ifneq ($(WITH_GAPPS),true)
+#ifneq ($(WITH_GAPPS),true)
 PRODUCT_PACKAGES += \
     ThemePicker \
     SimpleDeviceConfig \
@@ -52,12 +50,7 @@ PRODUCT_PACKAGES += \
     
 PRODUCT_DEXPREOPT_SPEED_APPS += \
     Launcher3QuickStep
-endif
-
-ifeq ($(WITH_GAPPS),true)
-PRODUCT_PACKAGES += \
-    ThemedIconsOverlay
-endif
+#endif
 
 # Common Overlay
 PRODUCT_PACKAGE_OVERLAYS += \
@@ -133,13 +126,13 @@ PRODUCT_PACKAGES += \
 
 TARGET_SUPPORTS_QUICK_TAP ?= true
 
-ifneq ($(WITH_GAPPS),true)
+#ifneq ($(WITH_GAPPS),true)
 # Pixel sysconfig
 PRODUCT_COPY_FILES += \
     vendor/aosp/prebuilt/common/etc/sysconfig/pixel.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/sysconfig/pixel.xml \
     vendor/aosp/prebuilt/common/etc/permissions/product/privapp-permissions-product-google.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/privapp-permissions-product-google.xml \
     vendor/aosp/prebuilt/common/etc/permissions/system/privapp-permissions-google-system.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/privapp-permissions-google-system.xml
-endif
+#endif
 
 # priv-app permissions
 PRODUCT_COPY_FILES += \

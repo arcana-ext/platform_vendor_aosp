@@ -20,7 +20,7 @@ $(call inherit-product, vendor/aosp/config/bootanimation.mk)
 include vendor/aosp/config/version.mk
 
 # ThemeOverlays
-#include packages/overlays/Themes/themes.mk
+include packages/overlays/Themes/themes.mk
 
 # Font config template
 PRODUCT_COPY_FILES += \

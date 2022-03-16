@@ -21,6 +21,18 @@ LOCAL_PATH := vendor/aosp/fonts
 PRODUCT_PACKAGES += \
     CutiveMono.ttf \
     DroidSansMono.ttf \
+    HarmonyOSSans-BlackItalic.ttf \
+    HarmonyOSSans-Black.ttf \
+    HarmonyOSSans-BoldItalic.ttf \
+    HarmonyOSSans-Bold.ttf \
+    HarmonyOSSans-Italic.ttf \
+    HarmonyOSSans-LightItalic.ttf \
+    HarmonyOSSans-Light.ttf \
+    HarmonyOSSans-MediumItalic.ttf \
+    HarmonyOSSans-Medium.ttf \
+    HarmonyOSSans-Regular.ttf \
+    HarmonyOSSans-ThinItalic.ttf \
+    HarmonyOSSans-Thin.ttf \
     Roboto-Regular.ttf \
     Manrope-VF.ttf \
     NotoSans-Italic-VF.ttf \

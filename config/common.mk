@@ -85,7 +85,6 @@ PRODUCT_PACKAGES += \
     librs_jni \
     Stk \
     GamingMode \
-    ArcanaSetupWizard \
     fossbrowser \
     DevicePersonalizationPrebuiltPixel2021
 

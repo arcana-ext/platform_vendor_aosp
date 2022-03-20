@@ -53,6 +53,7 @@ PRODUCT_PACKAGES += \
     RobotoFallback-VF.ttf \
     RobotoSystem-VF.ttf \
     RobotoStatic-Regular.ttf \
+    SamsungOne.ttf \
     SourceSans3-Italic-VF.otf \
     SourceSans3-VF.otf \
     NotoSerif-BoldItalic.ttf \

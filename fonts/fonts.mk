@@ -34,3 +34,4 @@ PRODUCT_PACKAGES += \
     FontSourceSerifOverlay \
     FontHarmonyOSSansOverlay \
     FontOnePlusSansOverlay \
+    FontSamsungOneOverlay \

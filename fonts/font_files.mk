@@ -37,6 +37,18 @@ PRODUCT_PACKAGES += \
     Manrope-VF.ttf \
     NotoSans-Italic-VF.ttf \
     NotoSans-VF.ttf \
+    OnePlusSans-Bold.ttf \
+    OnePlusSans-Thin.ttf \
+    OnePlusSans-Black.ttf \
+    OnePlusSans-Light.ttf \
+    OnePlusSans-Italic.ttf \
+    OnePlusSans-Medium.ttf \
+    OnePlusSans-Regular.ttf \
+    OnePlusSans-BoldItalic.ttf \
+    OnePlusSans-ThinItalic.ttf \
+    OnePlusSans-BlackItalic.ttf \
+    OnePlusSans-LightItalic.ttf \
+    OnePlusSans-MediumItalic.ttf \
     Recursive-VF.ttf \
     RobotoFallback-VF.ttf \
     RobotoSystem-VF.ttf \

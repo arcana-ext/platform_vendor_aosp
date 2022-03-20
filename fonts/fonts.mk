@@ -33,3 +33,4 @@ PRODUCT_PACKAGES += \
     FontSourceSansOverlay \
     FontSourceSerifOverlay \
     FontHarmonyOSSansOverlay \
+    FontOnePlusSansOverlay \

@@ -16,6 +16,7 @@ FONTS = {
     "Source Sans": "source-sans",
     "Source Serif": "serif",
     "HarmonyOS Sans": "harmonyos-sans",
+    "OnePlus Sans": "op-sans",
 }
 
 # Android.bp

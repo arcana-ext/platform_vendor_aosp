@@ -34,6 +34,7 @@ PRODUCT_PACKAGES += \
     HarmonyOSSans-ThinItalic.ttf \
     HarmonyOSSans-Thin.ttf \
     Roboto-Regular.ttf \
+    Linotte.ttf \
     Manrope-VF.ttf \
     NotoSans-Italic-VF.ttf \
     NotoSans-VF.ttf \

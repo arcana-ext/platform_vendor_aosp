@@ -18,6 +18,7 @@ FONTS = {
     "HarmonyOS Sans": "harmonyos-sans",
     "OnePlus Sans": "op-sans",
     "Samsung One": "samsungone",
+    "Linotte": "linotte",
 }
 
 # Android.bp

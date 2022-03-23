@@ -35,3 +35,4 @@ PRODUCT_PACKAGES += \
     FontHarmonyOSSansOverlay \
     FontOnePlusSansOverlay \
     FontSamsungOneOverlay \
+    FontLinotteOverlay \

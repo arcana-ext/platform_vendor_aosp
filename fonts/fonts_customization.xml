@@ -346,4 +346,10 @@
     <alias name="goudy" to="samsungone" />
     <alias name="fantasy" to="samsungone" />
     <alias name="ITC Stone Serif" to="samsungone" />
+    
+    <family customizationType="new-named-family" name="linotte">
+    <font weight="300" style="normal">Linotte.ttf</font>
+    </family>
+    <alias name="linotte-semi-bold" to="linotte" weight="600" />
+    <alias name="linotte-bold" to="linotte" weight="700" />
 </fonts-modification>

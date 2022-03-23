@@ -27,7 +27,11 @@ PRODUCT_COPY_FILES += \
     vendor/aosp/prebuilt/common/etc/custom_font_config.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/custom_font_config.xml
 
 PRODUCT_COPY_FILES += \
-    vendor/aosp/prebuilt/common/etc/permissions/product/com.google.android.apps.dialer.call_recording_audio.features.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/com.google.android.apps.dialer.call_recording_audio.features.xml
+    vendor/aosp/permissions/com.google.android.apps.dialer.call_recording_audio.features.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/com.google.android.apps.dialer.call_recording_audio.features.xml
+
+# priv-app permissions
+PRODUCT_COPY_FILES += \
+    vendor/aosp/permissions/privapp-permissions-whitelist.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/privapp-permissions-whitelist.xml
 
 # Backup Tool
 PRODUCT_COPY_FILES += \
@@ -125,23 +129,17 @@ PRODUCT_PACKAGES += \
 
 TARGET_SUPPORTS_QUICK_TAP ?= true
 
-#ifneq ($(WITH_GAPPS),true)
+ifneq ($(WITH_GAPPS),true)
 # Pixel sysconfig
 PRODUCT_COPY_FILES += \
     vendor/aosp/prebuilt/common/etc/sysconfig/pixel.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/sysconfig/pixel.xml \
-    vendor/aosp/prebuilt/common/etc/permissions/product/privapp-permissions-product-google.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/privapp-permissions-product-google.xml \
-    vendor/aosp/prebuilt/common/etc/permissions/system/privapp-permissions-google-system.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/privapp-permissions-google-system.xml
-#endif
+    vendor/aosp/permissions/privapp-permissions-google.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/privapp-permissions-google.xml
+endif
 
 # priv-app permissions
 PRODUCT_COPY_FILES += \
-    vendor/aosp/prebuilt/common/etc/permissions/system/privapp-permissions-arcana.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/privapp-permissions-arcana.xml \
-    vendor/aosp/prebuilt/common/etc/permissions/system/privapp-permissions-qti.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/privapp-permissions-qti.xml \
-    vendor/aosp/prebuilt/common/etc/permissions/system/android.software.nfc.beam.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/android.software.nfc.beam.xml \
-    vendor/aosp/prebuilt/common/etc/permissions/system/custom-power-whitelist.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/custom-power-whitelist.xml \
-    vendor/aosp/prebuilt/common/etc/permissions/product/privapp-permissions-arcana.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/privapp-permissions-arcana.xml \
-    vendor/aosp/prebuilt/common/etc/permissions/product/privapp-permissions-soundrecorder.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/privapp-permissions-soundrecorder.xml \
-    vendor/aosp/prebuilt/common/etc/permissions/system-ext/privapp-permissions-arcana.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions/privapp-permissions-arcana.xml \
+    vendor/aosp/permissions/android.software.nfc.beam.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/android.software.nfc.beam.xml \
+    vendor/aosp/permissions/custom-power-whitelist.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/custom-power-whitelist.xml
     
 # Pixel sysconfig from Pixel XL (Photos)
 PRODUCT_COPY_FILES += \
@@ -183,11 +181,11 @@ PRODUCT_PACKAGES += \
 
 # Backup Services whitelist
 PRODUCT_COPY_FILES += \
-    vendor/aosp/config/permissions/backup.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/backup.xml
+    vendor/aosp/permissions/backup.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/backup.xml
 
 # font permission
 PRODUCT_COPY_FILES += \
-    vendor/aosp/config/permissions/privapp-permissions-settings.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions/privapp-permissions-settings.xml
+    vendor/aosp/permissions/privapp-permissions-settings.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions/privapp-permissions-settings.xml
 
 # init.d support
 PRODUCT_COPY_FILES += \

@@ -17,10 +17,7 @@ $(call inherit-product, vendor/aosp/fonts/fonts.mk)
 $(call inherit-product, vendor/aosp/config/audio.mk)
 $(call inherit-product, vendor/aosp/audio/audio.mk)
 $(call inherit-product, vendor/aosp/config/bootanimation.mk)
-
-ifeq ($(WITH_GAPPS),true)
-$(call inherit-product-if-exists, vendor/gms/products/gms.mk)
-endif
+$(call inherit-product, vendor/aosp/config/gapps.mk)
 
 include vendor/aosp/config/version.mk
 
@@ -54,6 +51,7 @@ endif
 ifneq ($(WITH_GAPPS),true)
 PRODUCT_PACKAGES += \
     ThemePicker \
+    fossbrowser \
     Launcher3QuickStep
     
 PRODUCT_DEXPREOPT_SPEED_APPS += \
@@ -96,7 +94,6 @@ PRODUCT_PACKAGES += \
     librs_jni \
     Stk \
     GamingMode \
-    fossbrowser \
     DevicePersonalizationPrebuiltPixel2021
 
 ifeq ($(ARCANA_OFFICIAL),true)

@@ -17,6 +17,11 @@ $(call inherit-product, vendor/aosp/fonts/fonts.mk)
 $(call inherit-product, vendor/aosp/config/audio.mk)
 $(call inherit-product, vendor/aosp/audio/audio.mk)
 $(call inherit-product, vendor/aosp/config/bootanimation.mk)
+
+ifeq ($(WITH_GAPPS),true)
+$(call inherit-product-if-exists, vendor/gms/products/gms.mk)
+endif
+
 include vendor/aosp/config/version.mk
 
 # ThemeOverlays
@@ -46,16 +51,18 @@ PRODUCT_COPY_FILES += \
     vendor/aosp/prebuilt/common/bin/backuptool_postinstall.sh:$(TARGET_COPY_OUT_SYSTEM)/bin/backuptool_postinstall.sh
 endif
 
-#ifneq ($(WITH_GAPPS),true)
+ifneq ($(WITH_GAPPS),true)
 PRODUCT_PACKAGES += \
     ThemePicker \
-    SimpleDeviceConfig \
     Launcher3QuickStep
     
 PRODUCT_DEXPREOPT_SPEED_APPS += \
     Launcher3QuickStep
-#endif
+endif
 
+PRODUCT_PACKAGES += \
+    SimpleDeviceConfig
+    
 # Common Overlay
 PRODUCT_PACKAGE_OVERLAYS += \
     vendor/aosp/overlay/common

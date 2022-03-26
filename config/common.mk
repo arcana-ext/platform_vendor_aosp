@@ -131,8 +131,6 @@ PRODUCT_DEXPREOPT_SPEED_APPS += \
 PRODUCT_PACKAGES += \
     libjni_latinimegoogle
 
-TARGET_SUPPORTS_QUICK_TAP ?= true
-
 # Ambient Music (Now Playing)
 TARGET_SUPPORTS_NOW_PLAYING ?= false
 ifeq ($(TARGET_SUPPORTS_NOW_PLAYING),true)
@@ -153,9 +151,15 @@ PRODUCT_COPY_FILES += \
 endif
 
 PRODUCT_COPY_FILES += \
-    vendor/aosp/prebuilt/common/etc/sysconfig/game_overlay.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/sysconfig/game_overlay.xml \
-    vendor/aosp/prebuilt/common/etc/sysconfig/quick_tap.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/sysconfig/quick_tap.xml
+    vendor/aosp/prebuilt/common/etc/sysconfig/game_overlay.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/sysconfig/game_overlay.xml
     
+TARGET_SUPPORTS_QUICK_TAP ?= false
+# Quick Tap
+ifeq ($(TARGET_SUPPORTS_QUICK_TAP),true)
+PRODUCT_COPY_FILES += \
+    vendor/aosp/prebuilt/common/etc/sysconfig/quick_tap.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/sysconfig/quick_tap.xml
+endif
+
 # priv-app permissions
 PRODUCT_COPY_FILES += \
     vendor/aosp/permissions/android.software.nfc.beam.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/android.software.nfc.beam.xml \

@@ -133,6 +133,18 @@ PRODUCT_PACKAGES += \
 
 TARGET_SUPPORTS_QUICK_TAP ?= true
 
+# Ambient Music (Now Playing)
+TARGET_SUPPORTS_NOW_PLAYING ?= false
+ifeq ($(TARGET_SUPPORTS_NOW_PLAYING),true)
+PRODUCT_PACKAGES += \
+    NowPlayingOverlay
+PRODUCT_COPY_FILES += \
+    vendor/aosp/prebuilt/common/product/etc/ambient/matcher_tah.leveldb:$(TARGET_COPY_OUT_PRODUCT)/etc/ambient/matcher_tah.leveldb \
+    vendor/aosp/prebuilt/common/product/etc/firmware/music_detector.descriptor:$(TARGET_COPY_OUT_PRODUCT)/etc/firmware/music_detector.descriptor \
+    vendor/aosp/prebuilt/common/product/etc/firmware/music_detector.sound_model:$(TARGET_COPY_OUT_PRODUCT)/etc/firmware/music_detector.sound_model \
+    vendor/aosp/prebuilt/common/product/etc/firmware/music_detector.sound_model_2:$(TARGET_COPY_OUT_PRODUCT)/etc/firmware/music_detector.sound_model_2
+endif
+
 ifneq ($(WITH_GAPPS),true)
 # Pixel sysconfig
 PRODUCT_COPY_FILES += \

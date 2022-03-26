@@ -152,6 +152,9 @@ PRODUCT_COPY_FILES += \
     vendor/aosp/permissions/privapp-permissions-google.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/privapp-permissions-google.xml
 endif
 
+PRODUCT_COPY_FILES += \
+    vendor/aosp/prebuilt/common/etc/sysconfig/game_overlay.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/sysconfig/game_overlay.xml \
+    
 # priv-app permissions
 PRODUCT_COPY_FILES += \
     vendor/aosp/permissions/android.software.nfc.beam.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/android.software.nfc.beam.xml \

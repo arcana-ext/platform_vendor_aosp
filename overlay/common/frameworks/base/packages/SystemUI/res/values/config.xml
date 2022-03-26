@@ -51,4 +51,7 @@
     
     <!-- SystemUIFactory component -->
     <string name="config_systemUIFactoryComponent" translatable="false">com.arcana.android.systemui.arcanaSystemUIFactory</string>
+    
+    <!-- SystemUI vendor service, used in config_systemUIServiceComponents. -->
+    <string name="config_systemUIVendorServiceComponent" translatable="false">com.arcana.android.systemui.arcanaServices</string>
 </resources>

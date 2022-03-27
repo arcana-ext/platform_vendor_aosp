@@ -12,9 +12,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-#Arcana Versioning
-ARCANA_VERSION = EVERGLOW
-ARCANA_CODE = 5.1
+#Arcana Version
+ARCANA_VERSION = FAERIE
+ARCANA_CODE = 6.0
 
 ifeq ($(WITH_GAPPS),true)
 PACKAGE_BUILD_TYPE ?= PIXEL

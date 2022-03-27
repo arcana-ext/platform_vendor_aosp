@@ -15,12 +15,6 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- When true enable gesture setting. -->
-    <bool name="config_gesture_settings_enabled">true</bool>
-
-    <!-- If the Storage Manager settings are enabled. -->
-    <bool name="config_storage_manager_settings_enabled">true</bool>
-
-    <!-- Whether or not homepage should display user's account avatar -->
-    <bool name="config_show_avatar_in_homepage">true</bool>
+    <string name="themepicker_overlayable_package">com.google.android.apps.wallpaper</string>
+    <string name="launcher_overlayable_package">com.google.android.apps.nexuslauncher</string>
 </resources>

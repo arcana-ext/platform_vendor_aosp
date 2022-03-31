@@ -52,6 +52,7 @@ ifneq ($(WITH_GAPPS),true)
 PRODUCT_PACKAGES += \
     ThemePicker \
     fossbrowser \
+    SettingsIntelligenceGoogle \
     Launcher3QuickStep
     
 PRODUCT_DEXPREOPT_SPEED_APPS += \

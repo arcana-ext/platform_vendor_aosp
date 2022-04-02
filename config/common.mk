@@ -291,8 +291,8 @@ PRODUCT_SYSTEM_EXT_PROPERTIES += \
     
 # Fling Sysprops
 PRODUCT_SYSTEM_PROPERTIES += \
-    ro.min.fling_velocity=50 \
-    ro.max.fling_velocity=16000
+    ro.min.fling_velocity=160 \
+    ro.max.fling_velocity=20000
 
 # Disable Deep Press touch video heatmaps 
 PRODUCT_SYSTEM_PROPERTIES += \

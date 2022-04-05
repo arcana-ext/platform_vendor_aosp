@@ -315,6 +315,10 @@ EXCLUDE_SYSTEMUI_TESTS := true
 # Don't preopt prebuilts
 DONT_DEXPREOPT_PREBUILTS := true
 
+# Clean up packages cache to avoid wrong strings and resources
+PRODUCT_COPY_FILES += \
+    vendor/aosp/prebuilt/common/bin/clean_cache.sh:system/bin/clean_cache.sh
+
 # Recommend using the non debug dexpreopter
 USE_DEX2OAT_DEBUG := false
 # Don't build debug for host or device

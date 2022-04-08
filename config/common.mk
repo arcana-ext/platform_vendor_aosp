@@ -74,6 +74,10 @@ PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS +=  \
 PRODUCT_PRODUCT_PROPERTIES += \
     ro.support_one_handed_mode=true
 
+# Disable remote keyguard animation
+PRODUCT_SYSTEM_PROPERTIES += \
+    persist.wm.enable_remote_keyguard_animation=0
+
 # Face Unlock
 TARGET_FACE_UNLOCK_SUPPORTED ?= true
 ifeq ($(TARGET_FACE_UNLOCK_SUPPORTED),true)

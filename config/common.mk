@@ -241,7 +241,9 @@ PRODUCT_SYSTEM_PROPERTIES += \
 # Arcana maintainer
 PRODUCT_PRODUCT_PROPERTIES += \
     ro.arcana.maintainer=$(ARCANA_MAINTAINER) \
-    ro.arcana.code=$(ARCANA_CODE)
+    ro.arcana.code=$(ARCANA_CODE) \
+    ro.arcana.packagetype=$(PACKAGE_BUILD_TYPE) \
+    ro.arcana.platform_release_codename=SourCandy|12L
     
 # Needed by some RILs and for some gApps packages
 PRODUCT_PACKAGES += \

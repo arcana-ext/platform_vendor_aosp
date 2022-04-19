@@ -18,8 +18,9 @@ $(call inherit-product, vendor/aosp/config/audio.mk)
 $(call inherit-product, vendor/aosp/audio/audio.mk)
 $(call inherit-product, vendor/aosp/config/bootanimation.mk)
 $(call inherit-product, vendor/aosp/config/gapps.mk)
+ifeq ($(WITH_GAPPS),true)
 $(call inherit-product, vendor/PixelLauncher/PixelLauncher.mk)
-
+endif
 include vendor/aosp/config/version.mk
 
 # ThemeOverlays

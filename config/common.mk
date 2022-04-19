@@ -102,17 +102,13 @@ PRODUCT_PACKAGES += \
     GamingMode \
     DevicePersonalizationPrebuiltPixel2021
 
-ifeq ($(ARCANA_OFFICIAL),true)
 PRODUCT_PACKAGES += \
     OPWidget \
     Arcanery
-endif
 
-ifeq ($(ARCANA_OFFICIAL),true)
 # Repainter integration
 PRODUCT_PACKAGES += \
     RepainterServicePriv
-endif
 
 TARGET_BUILD_GRAPHENEOS_CAMERA ?= true
 ifeq ($(strip $(TARGET_BUILD_GRAPHENEOS_CAMERA)),true)

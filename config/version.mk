@@ -13,8 +13,8 @@
 # limitations under the License.
 
 #Arcana Version
-ARCANA_VERSION = FAERIE
-ARCANA_CODE = 6.0
+ARCANA_VERSION = GALE
+ARCANA_CODE = FNL
 
 ifeq ($(WITH_GAPPS),true)
 PACKAGE_BUILD_TYPE ?= PIXEL

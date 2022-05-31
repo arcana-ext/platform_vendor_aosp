@@ -13,8 +13,8 @@
 # limitations under the License.
 
 #Arcana Version
-ARCANA_VERSION = GALE
-ARCANA_CODE = FNL
+ARCANA_VERSION = REBORN
+ARCANA_CODE = 6.1
 
 ifeq ($(WITH_GAPPS),true)
 PACKAGE_BUILD_TYPE ?= PIXEL

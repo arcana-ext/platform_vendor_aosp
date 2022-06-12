@@ -100,7 +100,7 @@ PRODUCT_PACKAGES += \
     VisualizationWallpapers \
     librs_jni \
     Stk \
-    GamingMode \
+    GameSpace \
     DevicePersonalizationPrebuiltPixel2021
 
 PRODUCT_PACKAGES += \

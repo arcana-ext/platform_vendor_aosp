@@ -103,10 +103,6 @@ PRODUCT_PACKAGES += \
     GameSpace \
     DevicePersonalizationPrebuiltPixel2021
 
-PRODUCT_PACKAGES += \
-    OPWidget \
-    Arcanery
-
 # Repainter integration
 PRODUCT_PACKAGES += \
     RepainterServicePriv

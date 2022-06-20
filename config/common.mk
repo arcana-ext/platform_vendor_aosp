@@ -72,6 +72,16 @@ PRODUCT_PACKAGE_OVERLAYS += \
 PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS +=  \
     vendor/aosp/overlay/common
 
+ifneq ($(WITH_GAPPS),true)
+# Common Overlay
+PRODUCT_PACKAGE_OVERLAYS += \
+    vendor/aosp/overlay-vanilla/common
+
+# Exclude RRO Enforcement
+PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS +=  \
+    vendor/aosp/overlay-vanilla/common
+endif
+
 # Enable one-handed mode
 PRODUCT_PRODUCT_PROPERTIES += \
     ro.support_one_handed_mode=true

@@ -13,8 +13,8 @@
 # limitations under the License.
 
 #Arcana Version
-ARCANA_VERSION = REBORN
-ARCANA_CODE = 6.1
+ARCANA_VERSION = SERVAL
+ARCANA_CODE = 6.2
 
 ifeq ($(WITH_GAPPS),true)
 PACKAGE_BUILD_TYPE ?= PIXEL
